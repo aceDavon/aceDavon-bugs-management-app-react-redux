@@ -1,3 +1,7 @@
+# aceDavon-bugs-management-app-react-redux
+
+Bugs management for integration with react apps
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
