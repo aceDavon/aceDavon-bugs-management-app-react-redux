@@ -1,13 +1,199 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rebeccapurple;
+  color: white;
+  position: relative;
+}
+
+.nav-content {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+svg {
+  width: 35px;
+  height: auto;
+}
+
+.aligned {
+  position: relative;
+  width: 40px;
+  height: auto;
+}
+
+.bug-qty {
+  position: absolute;
+  top: -5px;
+  right: 3px;
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 50%;
+  padding: 0 2px;
+  font-size: xx-small;
+}
+
+.mainCont {
+  width: 65%;
+  margin: auto;
+}
+
+.mainCont-header {
+  margin-top: 80px;
+}
+
+.bug-cont,
+.form-group {
+  width: 65%;
+  margin: auto;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 2px 1px rgba(93, 91, 91, 0.192);
+}
+
+.form-group {
+  margin: 60px auto;
+  padding: 20px 0;
+}
+
+.bug-contInner {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+tbody {
+  width: 100%;
+}
+
+tr {
+  padding: 2px 15px;
+}
+
+tr svg {
+  width: 15px;
+  color: gray;
+  margin-left: 8px;
+}
+
+.bugTable-body tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.green-cont,
+.red-cont {
+  padding: 1px;
+  width: 85px;
+  font-size: smaller;
+  border: none;
+  border-radius: 12px;
+  background-color: greenyellow;
+  text-align: center;
+  color: white;
+}
+
+.red-cont {
+  background-color: rgb(187, 52, 52);
+}
+
+.formInput-group {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: start;
+}
+
+.formInput-group label {
+  font-weight: 700;
+}
+
+.formInput-group input {
+  width: 98%;
+  padding: 8px 4px;
+  margin: auto;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.plainWarning-txt,
+.Warning-txt {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.Warning-txt {
+  color: red;
+}
+
+.form-btn {
+  width: 50%;
+  margin: auto;
+}
+
+.btn {
+  padding: 5px 7px;
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.primary {
+  color: white;
+  background-color: greenyellow;
+}
+
+.secondary:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid red;
+}
+
+.primary:hover {
+  background-color: white;
+  color: black;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.action {
+  padding: 3px;
+  border: 1px solid gray;
+  color: gray;
+  border-radius: 4px;
+  width: 65px;
+  font-size: xx-small;
+  margin-right: 4px;
 }
