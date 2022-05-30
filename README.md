@@ -43,13 +43,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-`````sh
-
-npm i @reduxjs/toolkit react-redux
-
-```
-
 #### @reduxjs/toolkit
+
 consist of few libraries
 
 - redux (core library, state management)
@@ -57,14 +52,13 @@ consist of few libraries
 - redux-thunk (simplles and handles async functions)
 - reselect (simplifes reducer logic)
 
-
 ####extras
 
 - redux devtools
 - combine reducers
 
-
 #### react-redux
+
 connects our app to redux store
 
 ## Setup redux store
@@ -88,8 +82,8 @@ export default const Store = configureStore({
 - index.js
 
 ```js
-import { Store } from "./Store"
-import { Provider } from "react-redux"
+import { Store } from "./Store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -99,15 +93,14 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
- ```
+```
 
 ## Create App features
 
 - Create Features folder
 - Create /features/bugs/bugSlice.js
--create /features/bug/bugContainer.js
--create /features/bugs/bugitem.js
-
+  -create /features/bug/bugContainer.js
+  -create /features/bugs/bugitem.js
 
 ````bugSlice.js
 import { createSlice } from @reduxjs/toolkit
@@ -166,4 +159,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-`````
+````
