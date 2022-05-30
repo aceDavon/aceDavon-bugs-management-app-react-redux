@@ -52,14 +52,14 @@ consist of few libraries
 - redux-thunk (simplles and handles async functions)
 - reselect (simplifes reducer logic)
 
-####extras
+## extras
 
 - redux devtools
 - combine reducers
 
-#### react-redux
+## react-redux
 
-connects our app to redux store
+- connects our app to redux store
 
 ## Setup redux store
 
@@ -102,7 +102,9 @@ root.render(
   -create /features/bug/bugContainer.js
   -create /features/bugs/bugitem.js
 
-````bugSlice.js
+## bugSlice.js
+
+```js
 import { createSlice } from @reduxjs/toolkit
 import { bugItems } from ../bugItems.js
 
@@ -121,14 +123,12 @@ const bugSlice = createSlice({
 });
 
 export default bugSlice.reducer;
- ```
+```
 
-``bugcontainer.js
+## bugcontainer.js
 
 Destructures bug, qty from state data
 Checks for qty < 1 and display an empty store notification else maps through the destructured bug array and pass props to bugitem component for render.
-
-``
 
 ## Learn More
 
@@ -159,4 +159,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-````
