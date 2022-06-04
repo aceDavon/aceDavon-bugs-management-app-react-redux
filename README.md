@@ -1,6 +1,7 @@
 # aceDavon-bugs-management-app-react-redux
 
 Bugs management for integration with react apps
+https://ephemeral-cobbler-e21af1.netlify.app/
 
 # Getting Started with Create React App
 
