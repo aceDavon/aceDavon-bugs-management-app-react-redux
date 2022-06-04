@@ -38,10 +38,17 @@ svg {
   height: auto;
 }
 
+.top-group {
+  display: flex;
+  gap: 4px;
+  text-transform: capitalize;
+}
+
 .aligned {
   position: relative;
   width: 40px;
   height: auto;
+  display: flex;
 }
 
 .bug-qty {
@@ -58,6 +65,7 @@ svg {
 .mainCont {
   width: 65%;
   margin: auto;
+  position: relative;
 }
 
 .mainCont-header {
@@ -76,6 +84,7 @@ svg {
 .form-group {
   margin: 60px auto;
   padding: 20px 0;
+  position: relative;
 }
 
 .bug-contInner {
@@ -149,6 +158,11 @@ tr svg {
   color: red;
 }
 
+.tiny {
+  width: 45px;
+  height: auto;
+}
+
 .form-btn {
   width: 50%;
   margin: auto;
@@ -196,4 +210,47 @@ tr svg {
   width: 65px;
   font-size: xx-small;
   margin-right: 4px;
+}
+
+.d-block {
+  display: block;
+  margin: 35px auto;
+}
+
+.modal {
+  position: absolute;
+  width: 65%;
+  left: 5%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 2px 1px rgba(93, 91, 91, 0.192);
+}
+
+.alert-text {
+  position: relative;
+}
+
+.issue-link {
+  font-size: large;
+  font-weight: 600;
+  color: blueviolet;
+  display: block;
+  margin: 12px 0;
+}
+
+.dropped {
+  margin-bottom: 60px;
+}
+
+.flash-cont {
+  text-align: start;
+  font-size: large;
+  font-style: italic;
+  color: green;
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  border: none;
+  box-shadow: 1px 2px 3px rgba(89, 88, 88, 0.266);
+  padding: 12px 8px;
 }

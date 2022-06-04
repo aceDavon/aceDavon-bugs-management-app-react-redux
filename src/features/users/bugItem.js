@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import TimeAgo from "../../components/timeAgo";
 import { Beaker } from "../../Icons";
-import { selectAllUsers } from "../users/userSlice";
-import { removeBug, resolveBug } from "./bugSlice";
+import { removeBug, resolveBug, selectAllBugs } from "./bugSlice";
 
 export const BugItem = (props) => {
   const dispatch = useDispatch();
-  const { user } = useSelector(selectAllUsers);
-  const [username, setUsername] = useState("");
+  const { bug } = useSelector(selectAllBugs);
 
-  useEffect(() => {
-    const name = user.map((x) => x.username);
-    setUsername(name);
-  }, [user]);
-
-  console.log(username);
+  let storeUser = bug.map((x) => x.userId);
+  let username = Object.values(storeUser)
+    .map((x) => x.username)
+    .reduce((_, x) => {
+      return {
+        [x]: storeUser[x],
+      };
+    });
   const handleClick = (id) => dispatch(resolveBug(id));
   return (
     <tr>
@@ -44,8 +42,7 @@ export const BugItem = (props) => {
             </button>
           </div>
           <span className="plainWarning-txt">
-            Issue submitted by <Link to={"/"}>{username}</Link>{" "}
-            <TimeAgo timestamp={props.date} />
+            Issue submitted by <Link to={"/"}>{username}</Link>
           </span>
         </div>
       </td>

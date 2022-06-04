@@ -101,8 +101,14 @@ root.render(
 - Create /features/bugs/bugSlice.js
   -create /features/bug/bugContainer.js
   -create /features/bugs/bugitem.js
+  -create Services folder
+  -create /services/userAPI.js
 
-## bugSlice.js
+## bugSlice
+
+- Initializes state to default values,
+- Create bugslice and pass initial state, reducers and name keys to a create Slice function from @reduxjs/toolkit,
+- Export the bugslice.reducer function automatically generated
 
 ```js
 import { createSlice } from @reduxjs/toolkit
@@ -120,15 +126,52 @@ const initialState = {
 const bugSlice = createSlice({
   name: "bugs",
   initialState,
+  reducer,
 });
 
 export default bugSlice.reducer;
 ```
 
-## bugcontainer.js
+## bugcontainer
 
-Destructures bug, qty from state data
-Checks for qty < 1 and display an empty store notification else maps through the destructured bug array and pass props to bugitem component for render.
+- Destructures bug, qty from state data
+- Checks for qty < 1 and display an empty store notification else maps through the destructured bug array and pass props to bugitem component for render.
+
+# userSlice
+
+- Initializes state to default values,
+- Create Userslice and pass initial state, reducers and name keys to a create Slice function from @reduxjs/toolkit,
+- Export the userslice.reducer function automatically generated
+
+```js
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  user: [],
+  isloggedIn: false,
+};
+
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers,
+
+
+```
+
+## userContainer
+
+- Make an async fetch request to API for users ans set local state with return data,
+- render a minimal UI and pass the state to a authenticating component.
+- Upon authentication, user should see total issues, who added them and the time they were added as well as navigate to their own dashboards to see their own issues they added and track them.
+
+## services/userAPI
+
+- Create a userAPI function and pass a reducer path, baseQuery to fetchBasequery
+  with a baseUrl key assigned a base API url, define endpoints on the API with appropriate keys and values,
+- Export an automatically generated API key,
+- Add a reducer.path key with the userAPI reducer as value in the store
 
 ## Learn More
 
