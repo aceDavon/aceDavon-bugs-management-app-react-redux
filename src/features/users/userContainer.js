@@ -6,19 +6,9 @@ import Auth from "./auth";
 import Index from "./index";
 
 const UserContainer = () => {
-  const [users, setUsers] = useState([]);
-  const { user, isloggedIn } = useSelector(selectAllUsers);
+  const { users, isloggedIn } = useSelector(selectAllUsers);
   const [userModal, setUserModal] = useState(false);
   const { bug } = useSelector(selectAllBugs);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await (await fetch("https://fakestoreapi.com/users")).json();
-      setUsers(data);
-    };
-
-    fetchData();
-  }, []);
 
   return !isloggedIn ? (
     <div className="mainCont">
@@ -33,7 +23,7 @@ const UserContainer = () => {
         >
           Login
         </button>
-        {userModal && <Auth users={users} />}
+        {userModal && <Auth verified={isloggedIn} users={users} />}
       </span>
     </div>
   ) : (
@@ -45,7 +35,7 @@ const UserContainer = () => {
 
       <table className="bug-contInner">
         <tbody className="bugTable-body">
-          <Index data={[user, bug]} />
+          <Index />
         </tbody>
       </table>
     </div>

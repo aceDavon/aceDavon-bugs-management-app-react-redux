@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 import { signIn } from "./userSlice";
 import { useNavigate } from "react-router-dom";
 
-const Auth = (props) => {
+const Auth = ({ users, isloggedIn }) => {
   const dispatch = useDispatch();
   const [values, setvalues] = useState({});
   const navigate = useNavigate();
 
   const [err, setErr] = useState(false);
-
-  const user = props.users;
 
   const handleChange = (e) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
@@ -19,18 +17,14 @@ const Auth = (props) => {
   const { psw, username } = values;
 
   const handleClick = () => {
-    const found = user.find(
+    const userArr = users.find(
       (x) => x.username === username && x.password === psw
     );
 
-    console.log(found);
+    const canDispatch = [userArr, isloggedIn].every(Boolean);
 
-    if (found) {
-      dispatch(signIn(found));
-      return navigate("/issues/view", { replace: true });
-    } else {
-      setErr(false);
-    }
+    canDispatch ? setErr(!err) : dispatch(signIn(userArr));
+    return navigate("/issues/view", { replace: true });
   };
 
   return (

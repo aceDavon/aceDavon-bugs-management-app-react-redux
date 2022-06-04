@@ -14,11 +14,11 @@ export const BugsIndex = () => {
     description: "",
   });
   const [err, setErr] = useState(false);
-  const { isloggedIn, user } = useSelector(selectAllUsers);
+  const { isloggedIn, authUser } = useSelector(selectAllUsers);
   const [flash, setFlash] = useState(false);
   const [link, setLink] = useState(false);
 
-  const userId = user.find((x) => x.id);
+  const userId = authUser.id;
 
   let { title, description } = values;
   const canSave = Boolean(title) && Boolean(description);

@@ -8,16 +8,19 @@ import { bugsQty } from "./features/bugs/bugSlice";
 import { BugsIndex } from "./features/bugs";
 import UserContainer from "./features/users/userContainer";
 import Auth from "./features/users/auth";
-// import { selectAllUsers } from "./features/users/userSlice";
+import { fetchUsers } from "./features/users/userSlice";
 
 function App() {
   const dispatch = useDispatch();
   const { bug } = useSelector((state) => state.bug);
-  // const { isloggedIn } = useSelector(selectAllUsers);
 
   useEffect(() => {
     dispatch(bugsQty());
   }, [bug]);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
@@ -37,7 +40,7 @@ function App() {
           />
           <Route element={<Auth />} path={"/login"} />
           <Route path={"/issues"}>
-            <Route element={<BugContainer />} path={"view"} />
+            <Route element={<BugContainer />} index path={"view"} />
             <Route element={<BugsIndex />} path={"add-issues"} />
           </Route>
         </Routes>

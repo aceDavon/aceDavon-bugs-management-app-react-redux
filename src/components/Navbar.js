@@ -5,9 +5,11 @@ import { LogoIcon, BugsIcon } from "../Icons";
 
 export default function Navbar() {
   const { qty } = useSelector(selectAllBugs);
-  const { user } = useSelector(selectAllUsers);
+  const { authUser, isloggedIn } = useSelector(selectAllUsers);
 
-  const acct = user.map((details) => details.username);
+  const acct = authUser.username;
+
+  const authPassed = [isloggedIn, acct].every(Boolean);
   return (
     <>
       <div className="top-nav">
@@ -15,7 +17,7 @@ export default function Navbar() {
           <LogoIcon />
           <div className="top-group">
             <span>
-              {acct ? (
+              {authPassed ? (
                 <p className="plainWarning-txt">{acct}</p>
               ) : (
                 <p className="plainWarning-txt">login</p>

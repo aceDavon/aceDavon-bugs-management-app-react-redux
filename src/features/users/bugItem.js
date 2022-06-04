@@ -1,11 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectAllUsers } from "../users/userSlice";
 import { Beaker } from "../../Icons";
 import { removeBug, resolveBug, selectAllBugs } from "./bugSlice";
 
 export const BugItem = (props) => {
   const dispatch = useDispatch();
   const { bug } = useSelector(selectAllBugs);
+  const { user } = useSelector(selectAllUsers);
+
+  console.log(user);
 
   let storeUser = bug.map((x) => x.userId);
   let username = Object.values(storeUser)

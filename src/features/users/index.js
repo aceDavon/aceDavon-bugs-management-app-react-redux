@@ -5,14 +5,12 @@ import { Beaker } from "../../Icons";
 import { selectAllBugs } from "../bugs/bugSlice";
 import { selectAllUsers } from "./userSlice";
 
-const Index = (props) => {
-  const { user } = useSelector(selectAllUsers);
+const Index = () => {
+  const { authUser } = useSelector(selectAllUsers);
   const { bug } = useSelector(selectAllBugs);
-  console.log(user);
 
   const [issues, setIssues] = useState([]);
-  const userArr = user.map((x) => x.id);
-  console.log(userArr);
+  const userId = authUser.id;
 
   const FilterIssues = (arr1) => {
     const issues = arr1.map((x) => x.userId);
@@ -21,10 +19,9 @@ const Index = (props) => {
 
   useEffect(() => {
     setIssues(FilterIssues(bug));
-  }, [bug, user]);
+  }, [bug]);
 
-  const userissues = issues.map((x) => (x.id === userArr[0] ? bug : null));
-  console.log(userissues);
+  const userissues = issues.map((x) => (x === userId ? bug : null));
 
   return (
     <div>

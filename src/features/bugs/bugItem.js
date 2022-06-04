@@ -8,15 +8,14 @@ import { removeBug, resolveBug } from "./bugSlice";
 
 export const BugItem = (props) => {
   const dispatch = useDispatch();
-  const { user } = useSelector(selectAllUsers);
+  const { authUser } = useSelector(selectAllUsers);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const name = user.map((x) => x.username);
+    const name = authUser.username;
     setUsername(name);
-  }, [user]);
+  }, [authUser]);
 
-  console.log(username);
   const handleClick = (id) => dispatch(resolveBug(id));
   return (
     <tr>
