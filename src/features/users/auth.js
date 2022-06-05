@@ -57,7 +57,7 @@ const Auth = ({ users, isloggedIn }) => {
               </small>
             )}
           </div>
-          <div className="form-btn">
+          <div className="action-btns">
             <button
               className="btn primary d-block"
               type="button"
@@ -65,7 +65,7 @@ const Auth = ({ users, isloggedIn }) => {
             >
               Login
             </button>
-            <button className="btn secondary">Reset Fields</button>
+            <button className="btn secondary">Reset</button>
           </div>
         </form>
       </div>

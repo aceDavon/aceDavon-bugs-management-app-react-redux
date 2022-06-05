@@ -25,8 +25,6 @@ export const BugItem = (props) => {
     setUsername(name);
   }, []);
 
-  console.log(admin);
-
   const handleClick = (id) => dispatch(resolveBug(id));
   return (
     <tr>
