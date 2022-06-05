@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Flash from "../../components/flash";
 import TimeAgo from "../../components/timeAgo";
 import { Beaker } from "../../Icons";
 import { selectAllUsers } from "../users/userSlice";
@@ -10,11 +11,21 @@ export const BugItem = (props) => {
   const dispatch = useDispatch();
   const { authUser } = useSelector(selectAllUsers);
   const [username, setUsername] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     const name = authUser.username;
+    let id = authUser.id;
+
+    if (id === 1) {
+      setAdmin(!admin);
+    } else {
+      setAdmin(false);
+    }
     setUsername(name);
-  }, [authUser]);
+  }, []);
+
+  console.log(admin);
 
   const handleClick = (id) => dispatch(resolveBug(id));
   return (
@@ -27,6 +38,18 @@ export const BugItem = (props) => {
         <div className="action-group">
           {props.title}
           <div className="action-btns">
+            {!admin ? (
+              <Link className="issue-link" to={"/review"}>
+                Request review
+              </Link>
+            ) : (
+              <button
+                className="action primary"
+                onClick={() => handleClick(props.id)}
+              >
+                Resolve
+              </button>
+            )}
             <button
               className="action secondary"
               onClick={() => {
@@ -34,12 +57,6 @@ export const BugItem = (props) => {
               }}
             >
               Remove
-            </button>
-            <button
-              className="action primary"
-              onClick={() => handleClick(props.id)}
-            >
-              Resolve
             </button>
           </div>
           <span className="plainWarning-txt">

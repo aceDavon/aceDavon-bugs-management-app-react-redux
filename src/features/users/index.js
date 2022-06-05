@@ -19,7 +19,7 @@ const Index = () => {
 
   useEffect(() => {
     setIssues(FilterIssues(bug));
-  }, [bug]);
+  }, []);
 
   const userissues = issues.map((x) => (x === userId ? bug : null));
 
