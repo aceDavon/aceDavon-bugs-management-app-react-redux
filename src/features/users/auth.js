@@ -14,17 +14,23 @@ const Auth = ({ users, isloggedIn }) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const { psw, username } = values;
+  let { psw, username } = values;
 
   const handleClick = () => {
     const userArr = users.find(
       (x) => x.username === username && x.password === psw
     );
 
-    const canDispatch = [userArr, isloggedIn].every(Boolean);
+    const canDispatch = [userArr, !isloggedIn].every(Boolean);
 
-    canDispatch ? setErr(!err) : dispatch(signIn(userArr));
-    return navigate("/issues/view", { replace: true });
+    if (canDispatch) {
+      dispatch(signIn(userArr));
+      username = "";
+      psw = "";
+      return navigate("/issues/view", { replace: true });
+    }
+    setErr(!err);
+    setvalues({ psw: "" });
   };
 
   return (

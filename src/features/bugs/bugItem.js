@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Flash from "../../components/flash";
 import TimeAgo from "../../components/timeAgo";
 import { Beaker } from "../../Icons";
 import { selectAllUsers } from "../users/userSlice";

@@ -277,4 +277,8 @@ tr svg {
   tr {
     padding: 2px 5px;
   }
+
+  .modal {
+    width: 94%;
+  }
 }

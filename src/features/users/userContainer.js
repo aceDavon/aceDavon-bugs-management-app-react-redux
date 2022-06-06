@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectAllUsers } from "./userSlice";
-import { selectAllBugs } from "../bugs/bugSlice";
 import Auth from "./auth";
 import Index from "./index";
 
 const UserContainer = () => {
   const { users, isloggedIn } = useSelector(selectAllUsers);
   const [userModal, setUserModal] = useState(false);
-  const { bug } = useSelector(selectAllBugs);
 
   return !isloggedIn ? (
     <div className="mainCont">
